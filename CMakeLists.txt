@@ -15,11 +15,6 @@ message("FOUND OpenCV: ${OpenCV_INCLUDE_DIRS}" )
 find_package(Boost COMPONENTS system filesystem REQUIRED)
 message("FOUND Boost: ${Boost_INCLUDE_DIRS}" )
 
-set(PYTHON_INCLUDE_DIRS "/anaconda3/include/python3.7m/")
-set(PYTHON_LIBRARIES "/anaconda3/lib/libpython3.7m.dylib")
-#find_package(PythonLibs 3 REQUIRED HINTS "/anaconda3/include/python3.7m" "/anaconda3/include/python3.7" "/anaconda3/include")
-message("FOUND Python: ${PythonLibs_INCLUDE_DIRS}" )
-
 # Targets we develop
 enable_testing()
 
