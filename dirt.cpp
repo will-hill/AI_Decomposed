@@ -38,6 +38,13 @@ int *get_data(char *image_file_path) {
     return pixel_ints;
 }
 
+extern "C"
+int *apply_kernel(const int *image, const int image_width) {
+
+
+    int *convolution= new int[total_size];
+    return convolution;
+}
 
 int main(int argc, char *argv[]) {
 
