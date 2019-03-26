@@ -9,8 +9,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 enable_testing()
 
-add_library (gpu_pooling SHARED cuda.cpp gpu_hello.cpp)
+add_library (gpu_pooling SHARED gpu_hello.cpp)
 
-add_executable(gpu_pooling_e cuda.cpp)
+add_executable(gpu_pooling_e gpu_hello.cpp)
 target_link_libraries(gpu_pooling)
 
