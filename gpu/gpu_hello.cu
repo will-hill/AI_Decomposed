@@ -4,7 +4,7 @@
 #include <numeric>
 #include <algorithm>
 
-__global__ void pooling(int *pixels, int *convolution, int width, int height, int use_max) {
+__global__ void pooling ( int *pixels, int *convolution, int width, int height, int use_max ) {
 
     int convolution_idx = blockIdx.x * blockDim.x + threadIdx.x;
     int top_left = (blockIdx.x * width) + (threadIdx.x);
@@ -65,7 +65,7 @@ extern "C" int *pooling(int *pixels, const int width, const int height, const in
     cudaMemcpy(d_pixels, pixels, SIZE * sizeof(int), cudaMemcpyHostToDevice);
 
     // no need to calculate last row
-    pooling << < (height - 1), (width - 1) >> > (d_pixels, d_convolution, width, height, use_max);
+    pooling <<< (height - 1), (width - 1) >>> (d_pixels, d_convolution, width, height, use_max);
 
     cudaDeviceSynchronize();
 

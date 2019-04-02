@@ -6,10 +6,12 @@
 #include <array>
 
 std::vector<int> pool_2x2_kernel(std::vector<int> pixels, const int width, const int height, const int funct) {
+
     // total pixels to convolve
     int total_pixels = width * height;
     // to hold convolution
     std::vector<int> convolution;
+
     // slide kernel over pixels
     for (int i = 0; i < total_pixels; i++) {
         // test if done
@@ -27,6 +29,7 @@ std::vector<int> pool_2x2_kernel(std::vector<int> pixels, const int width, const
             double sum = std::accumulate(window.begin(), window.end(), 0.0);
             y = sum / window.size();
         } else {
+
             y = *max_element(window.begin(), window.end());
         }
         convolution.push_back(std::nearbyint(y));
@@ -34,8 +37,7 @@ std::vector<int> pool_2x2_kernel(std::vector<int> pixels, const int width, const
     return convolution;
 }
 
-extern "C" int *
-recurse_convolution(const int *pixels, const int width, const int height, const int recurse_cnt, const int use_max) {
+extern "C" int *recurse_convolution(const int *pixels, const int width, const int height, const int recurse_cnt, const int use_max) {
     int w = width, h = height, pixel_count = h * w;
     std::vector<int> convolution(pixel_count);
     for (int i = 0; i < w * h; i++) {
