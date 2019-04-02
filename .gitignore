@@ -2,3 +2,4 @@
 .DS_Store
 cmake-build-debug
 .ipynb_checkpoints
+__pycache__/
