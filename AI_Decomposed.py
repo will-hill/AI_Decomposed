@@ -97,3 +97,15 @@ def native_recurse_pooling(mat, width, recurse_cnt, use_max, function_ptr):
     ret_convo = np.ctypeslib.as_array( ptr_array_convolution.contents ,shape=(1,)).astype(int).tolist()
     # return Python list of convolution pixels
     return ret_convo
+
+###############################################################################################################################
+# http://localhost:8888/notebooks/4_Compare_Performance_Python_VS_C%2B%2B.ipynb#Visualize-Performance
+def calc_ttl_pixels(width, height, recursions):    
+    w = width
+    h = height
+    total_pixels = 0
+    for i in range(1,(recursions+1),1):    
+        total_pixels = total_pixels + (w*h)
+        w = w - 1
+        h = h - 1
+    return total_pixels

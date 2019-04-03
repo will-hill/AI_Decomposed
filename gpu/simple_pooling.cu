@@ -4,6 +4,8 @@
 #include <stdio.h>
 using namespace std;
 
+//  nvcc --ptxas-options=-v --compiler-options '-fPIC' -o gpu.so --shared  simple_poolings.cu
+
 __global__ void pooling(int *pixels, int *convolution, int width, int height, int use_max) {
 	int convolution_idx = blockIdx.x * blockDim.x + threadIdx.x;
 	// int top_left = (blockIdx.x * width) + (threadIdx.x);
@@ -87,7 +89,6 @@ int *init_array(const int size) {
 	return array;
 }
 
-//  nvcc --ptxas-options=-v --compiler-options '-fPIC' -o gpu.so --shared  simple_poolings.cu
 int main(void) {
 	const int width = 4;
 	const int height = 4;
