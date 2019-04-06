@@ -23,6 +23,11 @@ def image_meta(image_file):
     
     return [height, width, red, green, blue]   
 
+def save_image(pixels,width,name):
+    height = (int) (len(pixels)/width)
+    img = Image.new('L', (width, height))
+    img.putdata(pixels)
+    img.save("./imgs/" + name, "png")
 ###############################################################################################################################
 # http://localhost:8888/notebooks/1_Image_Metadata.ipynb
 def display_channel(pixels, width):
