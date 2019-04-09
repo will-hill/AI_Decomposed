@@ -38,6 +38,21 @@ def display_channel(pixels, width):
 
    ###############################################################################################################################
 # http://localhost:8888/notebooks/2_Py_Convolution.ipynb
+def apply_kernel(window, filter, i, j):
+    sum = 0
+    for m in range(len(filter)):
+        for n in range(len(filter[m])):
+            sum = sum + ((window[i + m][j + n]) * (filter[m][n]))
+    return sum
+def convolve(matrix, kernel):
+    convOut = []
+    for i in range(len(matrix) - ((len(kernel)) - 1)):
+        r = list()
+        for j in range(len(matrix[i]) - ((len(kernel)) - 1)):
+            r.append(apply_kernel(matrix, kernel, i, j))
+        convOut.append(r)
+    return convOut
+
 def PY_apply_simple_kernel_func(mat, w, kernel_funct):
     
     # determine height
@@ -78,6 +93,25 @@ def PY_recurse_pooling(mat, width, kernel_funct, recurse_cnt):
         m = PY_apply_simple_kernel_func(m, w, kernel_funct)
         w = w - 1
     return m        
+
+
+# credit https://stackoverflow.com/users/2005415/jason https://stackoverflow.com/questions/42463172
+def pooling(mat,ksize,method='max'):
+    '''Non-overlapping pooling on 2D or 3D data. <mat>: ndarray, input array to pool.
+    <ksize>: tuple of 2, kernel size in (ky, kx). <method>: str, 'max for max-pooling, 'mean' for mean-pooling.
+    Return <result>: pooled matrix.'''
+    m, n = mat.shape[:2]
+    ky,kx=ksize
+    _ceil=lambda x,y: int(np.ceil(x/float(y)))
+    ny=m//ky
+    nx=n//kx
+    mat_pad=mat[:ny*ky, :nx*kx, ...]
+    new_shape=(ny,ky,nx,kx)+mat.shape[2:]
+    if method=='max':
+        result=np.nanmax(mat_pad.reshape(new_shape),axis=(1,3))
+    else:
+        result=np.nanmean(mat_pad.reshape(new_shape),axis=(1,3))
+    return result
 
 ###############################################################################################################################
 # http://localhost:8888/notebooks/3_CPP_Convolution.ipynb
