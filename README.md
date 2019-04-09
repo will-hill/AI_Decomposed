@@ -1,7 +1,10 @@
-# AI_From_Dirt
+# AI Decomposed  
 Building AI from dirt, not really dirt, but close enough
 
-### Calling C++ from Python  
-Visually applies C++ max pooling kernal and return convolution to Python.  
-https://github.com/will-hill/AI_From_Dirt/blob/master/AI_From_Dirt.ipynb  
+### Python CNN ...from scratch  
+AI & Convolutional Neural Network with a visual, Python implementation  
+  
+### Executing on GPU from Python ...from scratch
+Explanation of how Python interacts with Nvidia GPU  
+
 
