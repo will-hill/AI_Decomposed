@@ -1,5 +1,5 @@
 # AI Decomposed  
-Building AI from dirt, not really dirt, but close enough
+Building AI from scratch, in Python, calling CUDA C++  
 
 ### Python CNN ...from scratch  
 AI & Convolutional Neural Network with a visual, Python implementation  
