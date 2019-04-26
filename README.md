@@ -1,6 +1,6 @@
 # AI Decomposed  
 Building AI from scratch, in Python  
-<center><img src='imgs/venn.png' width='450' /></center>
+<center><img align='center' src='imgs/venn.png' width='450' /></center>
 <img src='imgs/cnn_porche.png' width='750' />
 
 ### Python CNN ...from scratch  
