@@ -1,4 +1,5 @@
 # AI Decomposed  
+<img src='imgs/cnn_porche.png' width='750' />
 Building AI from scratch, in Python  
 
 ### Python CNN ...from scratch  
